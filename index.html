@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f9fc">
+<meta name="description" content="Удобное расписание 111 группы КНиИТ СГУ: пары на сегодня, числитель и знаменатель, подгруппы и изменения.">
+<title>Расписание · 111 группа КНиИТ</title>
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="manifest" href="./manifest.webmanifest">
+<style>
+:root{color-scheme:light;--bg:#f6f8fc;--paper:#fff;--ink:#17233d;--soft:#65758e;--light:#8591a5;--primary:#4567ec;--primary-hover:#3557d9;--primary-pale:#edf1ff;--stroke:#e6ebf3;--mint:#1f987d;--mint-bg:#e8f7f2;--gold:#b0752c;--gold-bg:#fff2dc;--purple:#9166c8;--purple-bg:#f2ecfb;--shadow:0 15px 32px rgba(39,61,107,.045)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}button,select{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #8aa4ff;outline-offset:3px}button:disabled{opacity:.38;cursor:not-allowed}a{color:var(--primary)}[hidden]{display:none!important}
+.shell{max-width:1160px;margin:0 auto;padding:0 24px 38px}.top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:19px 0 23px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}.brand-icon{display:grid;place-items:center;background:var(--primary);color:#fff;width:44px;height:44px;border-radius:14px;box-shadow:0 8px 14px #4567ec20;font-size:17px;font-weight:850;letter-spacing:-.07em}.brand-name{font-size:17px;font-weight:850;letter-spacing:-.045em;line-height:1.2}.brand-sub{color:var(--soft);font-size:11px;font-weight:650;margin-top:3px}.nav{display:flex;align-items:center;gap:9px}.nav-link{text-decoration:none;color:var(--soft);font-size:12px;font-weight:700;margin-right:7px}.nav-link:hover{color:var(--primary)}.icon-btn{display:grid;place-items:center;width:42px;height:42px;background:var(--paper);border:1px solid var(--stroke);border-radius:13px;color:var(--ink)}.icon-btn:hover{border-color:#adbef6;color:var(--primary)}.icon-btn svg{height:19px;width:19px;stroke-width:1.85}.spin svg{animation:rotation 1s linear infinite}@keyframes rotation{to{transform:rotate(360deg)}}
+.overview{background:linear-gradient(110deg,#1a2b51,#243f76);border-radius:23px;padding:25px 29px;display:grid;grid-template-columns:1fr minmax(280px,.93fr);gap:26px;align-items:center;position:relative;overflow:hidden;color:white}.overview:before{content:"";position:absolute;right:-150px;top:-250px;width:450px;height:450px;border-radius:50%;border:85px solid #acc0ff0d}.overview-left,.next-card{position:relative}.overline{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:780;letter-spacing:.065em;text-transform:uppercase;color:#acc2f5}.pulse{height:7px;width:7px;border-radius:50%;background:#77ebcb;flex:none}.overview h1{font-size:clamp(24px,2.9vw,33px);line-height:1.18;letter-spacing:-.045em;margin:10px 0 6px;font-weight:825}.overview-sub{margin:0;color:#c4d3ef;font-size:13px;line-height:1.6}.next-card{border:1px solid #ffffff2d;background:#ffffff12;padding:17px 20px;border-radius:17px}.next-label{color:#b6c9ee;font-size:11px;font-weight:750;letter-spacing:.02em}.next-card h2{font-size:clamp(16px,1.8vw,20px);letter-spacing:-.035em;line-height:1.3;margin:7px 0;font-weight:770}.next-details{color:#d1dff8;font-size:12px;line-height:1.6}
+.notice{display:none;margin-top:15px;padding:13px 15px;border:1px solid #f0cf8d;border-radius:13px;background:#fff9eb;color:#754c1a;font-size:13px}.notice.visible{display:block}.notice a{font-weight:750;color:inherit}
+.section-tabs{display:flex;gap:26px;border-bottom:1px solid var(--stroke);margin:20px 0 0}.section-tabs button{border:0;border-bottom:3px solid transparent;background:none;color:var(--soft);font-weight:760;padding:12px 2px 11px;font-size:14px}.section-tabs button.active{color:var(--primary);border-color:var(--primary)}
+.toolbar{display:flex;justify-content:space-between;align-items:end;gap:17px;margin:25px 0 15px;flex-wrap:wrap}.week-label{font-size:11px;color:var(--light);font-weight:850;text-transform:uppercase;letter-spacing:.09em;margin-bottom:7px}.week-title{display:flex;align-items:center;gap:12px}.week-title h2{font-size:clamp(21px,2.6vw,27px);letter-spacing:-.05em;line-height:1.2;margin:0;font-weight:840}.week-controls{display:flex;gap:5px}.arrow-btn{width:36px;height:36px;display:grid;place-items:center;border-radius:11px;color:var(--ink);background:var(--paper);border:1px solid var(--stroke);font-size:23px;line-height:1}.arrow-btn:hover{border-color:#b3c3fd}.week-note{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:10px;color:var(--soft);font-size:12px}.parity{font-size:11px;font-weight:790;border-radius:7px;padding:4px 8px;background:var(--primary-pale);color:var(--primary)}.week-note .sep{color:#c7cfdf}.tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.today-btn,.export-btn,.select-wrap,.toggle{height:41px;border:1px solid var(--stroke);border-radius:12px;background:var(--paper);color:var(--ink);font-size:12px;font-weight:750}.today-btn,.export-btn{padding:0 13px}.today-btn:hover,.export-btn:hover,.select-wrap:hover{border-color:#b7c4ee}.today-btn{color:var(--primary)}.select-wrap{display:flex;align-items:center;gap:9px;padding:0 11px}.select-wrap span{color:var(--soft);font-size:12px;font-weight:650}.select-wrap select{max-width:140px;border:0;color:var(--ink);background:transparent;font-size:12px;font-weight:800;outline:none}.toggle{display:flex;gap:2px;padding:4px}.toggle button{padding:0 13px;border:0;background:transparent;border-radius:9px;color:var(--soft);font-size:12px;font-weight:800}.toggle button.active{background:var(--primary-pale);color:var(--primary)}.group-tip{display:flex;align-items:center;gap:8px;margin:0 0 14px;font-size:12px;color:var(--soft)}.group-tip i{font-size:15px;color:var(--primary);font-style:normal}
+.day-tabs{display:flex;gap:9px;margin-bottom:19px;overflow-x:auto;padding:0 0 5px;scrollbar-width:thin;scrollbar-color:#d4dded transparent}.day-tab{flex:1;min-width:75px;min-height:78px;padding:8px 5px;background:var(--paper);border:1px solid var(--stroke);border-radius:15px;color:var(--ink);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;transition:background .1s,border-color .1s}.day-tab:hover{border-color:#adc0f7}.day-tab.active{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 8px 15px #4567ec1f}.day-name{font-size:11px;color:var(--soft);font-weight:750}.day-tab.active .day-name{color:#dce4ff}.day-num{font-size:21px;line-height:1.1;font-weight:850;letter-spacing:-.04em}.day-counter{font-size:10px;font-weight:750;color:var(--light)}.day-tab.active .day-counter{color:#dce5ff}.day-tab.today:not(.active){border-color:var(--primary)}.day-tab.today .day-name:after{content:" •";color:var(--primary)}.day-tab.today.active .day-name:after{color:#fff}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 273px;gap:20px;align-items:start}.panel{background:var(--paper);border:1px solid var(--stroke);border-radius:20px;box-shadow:var(--shadow)}.schedule-panel{padding:23px}.panel-top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:17px}.panel-title{font-size:20px;letter-spacing:-.04em;font-weight:830;line-height:1.2;margin:0}.panel-sub{font-size:12px;color:var(--soft);margin-top:5px}.count-chip{font-size:12px;color:var(--primary);background:var(--primary-pale);border-radius:9px;padding:6px 10px;font-weight:760;white-space:nowrap}.lessons{display:flex;flex-direction:column;gap:9px}.lesson{border:1px solid var(--stroke);background:var(--paper);border-radius:14px;padding:17px;display:grid;grid-template-columns:62px 3px minmax(0,1fr);align-items:stretch;gap:14px}.lesson.now{background:linear-gradient(100deg,#edf5ff,var(--paper) 68%);border-color:#acc1ff}.lesson-time{font-variant-numeric:tabular-nums;font-weight:830;font-size:13px;letter-spacing:-.01em;padding-top:2px}.lesson-time .end{color:var(--light);font-size:12px;font-weight:550;margin-top:5px}.type-bar{background:#5974e9;border-radius:4px}.lesson.practice .type-bar{background:#24a48b}.lesson.lab .type-bar{background:#ae80d5}.lesson-info{min-width:0}.lesson h3{font-size:15px;font-weight:790;line-height:1.35;letter-spacing:-.018em;margin:7px 0 8px}.lesson-topline{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.tag{font-size:10px;line-height:1.45;font-weight:770;padding:3px 7px;border-radius:6px;background:var(--primary-pale);color:var(--primary)}.tag.practice{background:var(--mint-bg);color:var(--mint)}.tag.lab{background:var(--purple-bg);color:var(--purple)}.tag.subgroup{background:var(--gold-bg);color:var(--gold)}.tag.shift{background:#f1f4f9;color:#748094}.tag.nowbadge{background:#dbf6e9;color:#147f5c}.lesson-meta{display:flex;align-items:center;gap:6px 16px;flex-wrap:wrap;color:var(--soft);font-size:12px;line-height:1.55}.lesson-meta span{display:flex;align-items:flex-start;gap:5px}.lesson-meta svg{width:14px;height:14px;flex:none;opacity:.67;margin-top:2px}.lesson-note{font-size:11px;color:var(--gold);margin-top:6px}.empty{text-align:center;padding:55px 20px;color:var(--soft)}.empty-icon{font-size:25px;background:var(--primary-pale);color:var(--primary);display:grid;place-items:center;width:54px;height:54px;border-radius:15px;margin:auto auto 13px}.empty h3{color:var(--ink);font-size:16px;margin:0 0 5px}.empty p{font-size:12px;margin:0;line-height:1.6}
+.aside{display:flex;flex-direction:column;gap:13px}.side-card{padding:19px}.side-title{font-size:13px;font-weight:820;margin:0 0 12px}.side-kv{display:flex;justify-content:space-between;align-items:baseline;gap:10px;color:var(--soft);font-size:12px;margin:0 0 9px}.side-kv strong{font-weight:790;color:var(--ink);text-align:right}.source-meta{font-size:12px;color:var(--soft);margin-bottom:9px}.status{display:flex;align-items:flex-start;gap:8px;color:var(--soft);font-size:12px;line-height:1.55}.status-dot{width:7px;height:7px;border-radius:50%;background:#2eb68e;flex:none;margin-top:5px}.status-dot.warn{background:#e9a046}.source-button{display:inline-flex;text-decoration:none;font-weight:750;font-size:12px;margin-top:12px}.source-button:hover{text-decoration:underline}.expand{border-top:1px solid var(--stroke);margin-top:14px;padding-top:12px}.expand summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--soft);font-size:12px;font-weight:750}.expand summary::-webkit-details-marker{display:none}.expand summary:after{content:"⌄";font-size:18px}.expand[open] summary:after{transform:rotate(180deg)}.side-help{font-size:12px;color:var(--soft);line-height:1.65;margin:12px 0 0}.legend{margin-top:9px;color:var(--soft);font-size:12px}.legend strong{font-size:11px;color:var(--ink);display:inline-block;min-width:28px}.changes-item{display:flex;gap:8px;margin:13px 0;font-size:12px}.changes-item .point{color:var(--gold)}.changes-item strong{display:block;font-weight:700;color:var(--ink)}.changes-item span:last-child{color:var(--soft);font-size:11px}.changes-card{border-color:#efd6b7}.changes-card .side-title{color:var(--gold)}
+.week-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mini-day{border:1px solid var(--stroke);border-radius:13px;overflow:hidden}.mini-day-head{display:flex;justify-content:space-between;align-items:center;padding:12px 13px;background:var(--bg);gap:7px;border-bottom:1px solid var(--stroke)}.mini-day-head strong{font-size:12px}.mini-day-head span{font-size:11px;color:var(--soft)}.mini-day-body{padding:4px 13px}.mini-lesson{display:grid;grid-template-columns:42px 3px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--stroke)}.mini-lesson:last-child{border-bottom:0}.ml-time{font-size:11px;font-weight:750;font-variant-numeric:tabular-nums}.ml-bar{background:#5974e9;border-radius:3px}.mini-lesson.practice .ml-bar{background:#24a48b}.mini-lesson.lab .ml-bar{background:#ae80d5}.mini-lesson strong{font-size:12px;display:block;line-height:1.45}.mini-lesson small{display:block;color:var(--soft);font-size:11px;line-height:1.4;margin-top:4px}.mini-none{padding:13px 0;text-align:center;color:var(--soft);font-size:12px}.exam-list{display:flex;flex-direction:column;gap:9px}.exam{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:14px;border:1px solid var(--stroke);border-radius:13px}.exam-date{font-size:12px;font-weight:750}.exam-date span{display:block;color:var(--soft);margin-top:4px}.exam-title{font-size:14px;font-weight:760;margin-top:7px}.exam-meta{color:var(--soft);font-size:12px;line-height:1.6;margin-top:5px}.footer{border-top:1px solid var(--stroke);margin-top:25px;padding-top:15px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--soft);font-size:11px}
+.dark{color-scheme:dark;--bg:#0f1829;--paper:#19253a;--ink:#f0f4ff;--soft:#a9b6ce;--light:#95a6c3;--primary:#a2b6ff;--primary-hover:#c2d0ff;--primary-pale:#2b3d66;--stroke:#32425b;--mint:#89dfc3;--mint-bg:#1c3c39;--gold:#f0ba75;--gold-bg:#483724;--purple:#d4b3f9;--purple-bg:#403050;--shadow:0 15px 35px #07102445}.dark .overview{background:linear-gradient(110deg,#1b3260,#273e72)}.dark .lesson.now{background:linear-gradient(100deg,#1c345a,var(--paper) 75%)}.dark .tag.shift{background:#2c3b54;color:#b7c4db}.dark .tag.nowbadge{background:#184238;color:#9be9ce}.dark .notice{background:#3c3023;color:#f2d5a5;border-color:#755635}
+@media(max-width:900px){.layout{grid-template-columns:minmax(0,1fr)}.aside{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.changes-card{grid-column:1/-1}.toolbar{align-items:start}.tools{width:100%}.week-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.shell{padding:0 14px 30px}.top{padding:13px 0 15px}.brand-icon{width:40px;height:40px;border-radius:12px;font-size:15px}.brand-name{font-size:16px}.brand-sub{font-size:10px}.nav{gap:7px}.nav-link{display:none}.icon-btn{width:39px;height:39px;border-radius:12px}.overview{grid-template-columns:1fr;gap:15px;padding:20px 20px 18px;border-radius:18px}.overview h1{font-size:24px;margin:8px 0 3px}.overview-sub{font-size:12px}.next-card{padding:12px 14px;border-radius:13px}.next-card h2{font-size:15px;margin:4px 0}.next-details{font-size:11px}.section-tabs{margin-top:11px;gap:21px}.section-tabs button{padding:10px 0;font-size:13px}.toolbar{margin:19px 0 13px;gap:13px}.week-title{justify-content:space-between;gap:13px}.week-title h2{font-size:22px}.week-controls{gap:6px}.arrow-btn{width:38px;height:38px}.tools{display:grid;grid-template-columns:1fr auto auto;gap:7px;align-items:center}.today-btn{grid-column:1;grid-row:1;text-align:center}.select-wrap{grid-column:2/4;grid-row:1;justify-content:space-between}.toggle{grid-column:1/3;grid-row:2}.toggle button{flex:1;min-height:34px}.export-btn{grid-column:3;grid-row:2;white-space:nowrap}.select-wrap span{font-size:11px}.select-wrap select{font-size:12px;max-width:120px}.week-note{margin-top:8px;font-size:11px}.day-tabs{margin-right:-14px;padding-right:14px;gap:7px;margin-bottom:13px}.day-tab{min-width:53px;min-height:67px;border-radius:12px;gap:3px;padding:8px 4px}.day-num{font-size:19px}.day-name{font-size:10px}.day-counter{font-size:10px}.group-tip{font-size:11px;margin-bottom:12px}.schedule-panel{padding:15px 12px;border-radius:16px}.panel-top{margin-bottom:14px}.panel-title{font-size:17px}.panel-sub{font-size:11px}.count-chip{font-size:11px}.lesson{padding:13px 9px;grid-template-columns:48px 3px minmax(0,1fr);gap:10px;border-radius:12px}.lesson h3{font-size:13px;margin:7px 0}.lesson-time{font-size:12px}.lesson-time .end{font-size:11px}.lesson-meta{font-size:11px;gap:5px 12px}.tag{font-size:10px;padding:2px 5px}.aside{grid-template-columns:1fr;gap:10px;margin-top:2px}.side-card{padding:15px;border-radius:16px}.week-grid{grid-template-columns:1fr}.exam{grid-template-columns:80px 1fr;padding:11px;gap:8px}.footer{line-height:1.6}}
+@media(max-width:340px){.tools{grid-template-columns:1fr 1fr}.select-wrap{grid-column:2;grid-row:1;padding:0 6px;gap:3px}.select-wrap span{display:none}.toggle{grid-column:1;grid-row:2}.export-btn{grid-column:2;grid-row:2}.day-tab{min-width:50px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.spin svg{animation:none}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <a class="brand" href="./" aria-label="На главную расписания"><span class="brand-icon">111</span><span><span class="brand-name">Моё расписание</span><span class="brand-sub" style="display:block">КНиИТ · СГУ</span></span></a>
+    <nav class="nav" aria-label="Полезные ссылки и настройки"><a class="nav-link" href="https://www.sgu.ru/schedule/knt/do/111" target="_blank" rel="noopener noreferrer">Официальное расписание ↗</a>
+      <button class="icon-btn" id="theme" type="button" title="Сменить тему" aria-label="Переключить светлую и тёмную тему"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg></button>
+      <button class="icon-btn" id="refresh" type="button" title="Проверить доступные обновления" aria-label="Проверить обновления на моём сайте"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.3 9A8 8 0 0 1 19 6l1 1M4 17l1 1a8 8 0 0 0 13.7-3"/></svg></button>
+    </nav>
+  </header>
+  <section class="overview" aria-label="Ближайшее занятие">
+    <div class="overview-left"><div class="overline"><span class="pulse"></span><span id="summaryDate">Расписание 111 группы</span></div><h1 id="todayTitle">Пары на сегодня</h1><p class="overview-sub" id="todaySummary">Загружаем информацию…</p></div>
+    <div class="next-card"><div class="next-label" id="nextLabel">Ближайшая пара</div><h2 id="nextSubject">Проверяем…</h2><div class="next-details" id="nextInfo">По времени Саратова</div></div>
+  </section>
+  <div class="notice" id="notice" role="status" aria-live="polite"></div>
+  <nav class="section-tabs" role="tablist" aria-label="Разделы"><button id="tabClasses" role="tab" aria-selected="true" class="active" type="button">Занятия</button><button id="tabExams" role="tab" aria-selected="false" type="button">Сессия</button></nav>
+  <section id="classes" aria-label="Расписание занятий">
+    <div class="toolbar">
+      <div class="week-info"><div class="week-label">Учебная неделя</div><div class="week-title"><h2 id="range">—</h2><div class="week-controls"><button class="arrow-btn" id="prev" type="button" title="Неделя назад" aria-label="Предыдущая неделя">‹</button><button class="arrow-btn" id="next" type="button" title="Неделя вперёд" aria-label="Следующая неделя">›</button></div></div><div class="week-note"><span class="parity" id="parity">—</span><span class="sep">•</span><span id="weekLabel">—</span></div></div>
+      <div class="tools"><button id="today" class="today-btn" type="button">↗ Сегодня</button><label class="select-wrap" for="group"><span>Моя подгруппа</span><select id="group"><option value="all">Все</option><option value="1">1-я</option><option value="2">2-я</option><option value="3">3-я</option></select></label><div class="toggle" role="group" aria-label="Как показать расписание"><button type="button" id="viewDay" class="active" aria-pressed="true">День</button><button type="button" id="viewWeek" aria-pressed="false">Неделя</button></div><button id="ics" class="export-btn" type="button" title="Скачать .ics на четыре недели">В календарь ↓</button></div>
+    </div>
+    <p class="group-tip" id="groupTip"><i aria-hidden="true">ⓘ</i> Выбери свою подгруппу, чтобы не видеть чужие занятия. Выбор сохранится.</p>
+    <div class="day-tabs" id="dayTabs" aria-label="Выберите день"></div>
+    <div class="layout"><main class="panel schedule-panel" id="content" aria-live="polite"></main><aside class="aside">
+      <section class="panel side-card"><h3 class="side-title">Проверка расписания</h3><p class="source-meta" id="updated">СГУ · обновлено —</p><div class="status"><span class="status-dot" id="statusDot"></span><span id="statusText">Загрузка данных…</span></div><a class="source-button" href="https://www.sgu.ru/schedule/knt/do/111" target="_blank" rel="noopener noreferrer">Сверить с сайтом СГУ ↗</a><details class="expand"><summary>Как обновляется расписание</summary><p class="side-help">На опубликованном сайте данные проверяются автоматически через GitHub Actions. Кнопка ↻ проверяет опубликованную копию. При открытии HTML-файла без сервера показан сохранённый снимок, автоматической синхронизации нет.</p></details></section>
+      <section class="panel side-card"><h3 class="side-title">Коротко о неделе</h3><div class="side-kv"><span>Неделя</span><strong id="sideWeek">—</strong></div><div class="side-kv"><span>Всего занятий</span><strong id="sideTotal">—</strong></div><div class="side-kv"><span>Подгруппа</span><strong id="sideGroup">Все</strong></div><details class="expand"><summary>Что такое числитель и знаменатель?</summary><p class="side-help">Некоторые занятия проходят через неделю. <b>Ч</b> — числитель, <b>З</b> — знаменатель. Сайт берёт чередование из опубликованного календаря СГУ, а вне его отмечает неделю как неподтверждённую.</p><div class="legend"><strong>1/2/3</strong> отдельные подгруппы</div></details></section>
+      <section class="panel side-card changes-card" id="changesBox" hidden><h3 class="side-title">Недавние изменения СГУ</h3><div id="changes"></div></section>
+    </aside></div>
+  </section>
+  <section id="exams" style="display:none" aria-label="Расписание сессии"><div class="panel schedule-panel" style="margin-top:19px"><div class="panel-top"><div><h2 class="panel-title">Сессия</h2><div class="panel-sub">Опубликованные зачёты, экзамены и архив прошедших событий</div></div><span id="examCount" class="count-chip">—</span></div><div class="exam-list" id="examList"></div></div></section>
+  <footer class="footer"><span>Неофициальный интерфейс · 111 группа КНиИТ · время Саратова (UTC+4)</span><span>При расхождениях актуален <a href="https://www.sgu.ru/schedule/knt/do/111" target="_blank" rel="noopener noreferrer">оригинал СГУ</a></span></footer>
+</div>
+<script id="initialData" type="application/json">{
+  "group": "111",
+  "faculty": "Факультет компьютерных наук и информационных технологий",
+  "source": "https://www.sgu.ru/schedule/knt/do/111",
+  "calendar_source": "https://www.sgu.ru/schedule/knt",
+  "source_updated": "26.10.2026",
+  "fetched_at": null,
+  "initial_snapshot": true,
+  "week_calendar": [
+    {
+      "start": "2026-08-31",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-09-07",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-09-14",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-09-21",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-09-28",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-10-05",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-10-12",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-10-19",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-10-26",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-11-02",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-11-09",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-11-16",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-11-23",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-11-30",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-12-07",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-12-14",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-12-21",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-12-28",
+      "type": "denominator"
+    }
+  ],
+  "lessons": [
+    {
+      "day": 0,
+      "start": "08:20",
+      "end": "09:50",
+      "kind": "practice",
+      "title": "Иностранный язык",
+      "teacher": "Алексеева Д. А.",
+      "location": "12 корпус, 125 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 0,
+      "start": "10:00",
+      "end": "11:35",
+      "kind": "practice",
+      "title": "Основы Российской государственности",
+      "teacher": "Дорошин И. А.",
+      "location": "12 корпус, 420/421 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 0,
+      "start": "12:05",
+      "end": "13:40",
+      "kind": "lecture",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Иванова А. С.",
+      "location": "12 корпус, 333 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 0,
+      "start": "13:50",
+      "end": "15:25",
+      "kind": "practice",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Павлова А. А.",
+      "location": "12 корпус, 329 комната",
+      "week": "both",
+      "groups": [
+        1
+      ],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 1,
+      "start": "08:20",
+      "end": "09:50",
+      "kind": "practice",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Ковешников Д. В.",
+      "location": "12 корпус, 418 комната",
+      "week": "denominator",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 1,
+      "start": "10:00",
+      "end": "11:35",
+      "kind": "practice",
+      "title": "Физическая культура и спорт",
+      "teacher": "Кудрявцева Е. В.",
+      "location": "Спортивный комплекс «Стадион Локомотив»: беговые дорожки; манеж",
+      "week": "both",
+      "groups": [],
+      "note": "Бассейн (пометка на сайте СГУ)",
+      "after_change": false
+    },
+    {
+      "day": 1,
+      "start": "12:05",
+      "end": "13:40",
+      "kind": "lecture",
+      "title": "История России",
+      "teacher": "Зайцев М. В.",
+      "location": "12 корпус, 424/425 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 1,
+      "start": "13:50",
+      "end": "15:25",
+      "kind": "lecture",
+      "title": "Основы Российской государственности",
+      "teacher": "Дорошин И. А.",
+      "location": "12 корпус, 333 комната",
+      "week": "numerator",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 1,
+      "start": "13:50",
+      "end": "15:25",
+      "kind": "lecture",
+      "title": "Теоретическая информатика",
+      "teacher": "Иванов А. С.",
+      "location": "12 корпус, 310 комната",
+      "week": "denominator",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 2,
+      "start": "08:20",
+      "end": "09:50",
+      "kind": "lecture",
+      "title": "Математический анализ",
+      "teacher": "Сахно Л. В.",
+      "location": "12 корпус, 424/425 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 2,
+      "start": "10:00",
+      "end": "11:35",
+      "kind": "practice",
+      "title": "Иностранный язык",
+      "teacher": "Алексеева Д. А.",
+      "location": "12 корпус, 125 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 2,
+      "start": "12:05",
+      "end": "13:40",
+      "kind": "lecture",
+      "title": "Русский язык и культура речи",
+      "teacher": "Шаповалова Н. Г.",
+      "location": "12 корпус, 420/421 комната",
+      "week": "numerator",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 2,
+      "start": "13:50",
+      "end": "15:25",
+      "kind": "practice",
+      "title": "Теоретическая информатика",
+      "teacher": "Иванов А. С.",
+      "location": "12 корпус, 303 комната",
+      "week": "numerator",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 2,
+      "start": "13:50",
+      "end": "15:25",
+      "kind": "practice",
+      "title": "Русский язык и культура речи",
+      "teacher": "Шаповалова Н. Г.",
+      "location": "12 корпус, 420/421 комната",
+      "week": "denominator",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 2,
+      "start": "15:35",
+      "end": "17:10",
+      "kind": "lecture",
+      "title": "Введение в языкознание",
+      "teacher": "Алексеева Д. А.",
+      "location": "12 корпус, 424/425 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 3,
+      "start": "08:20",
+      "end": "09:50",
+      "kind": "lecture",
+      "title": "Алгебра и геометрия",
+      "teacher": "Бредихин Д. А.",
+      "location": "12 корпус, 420/421 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 3,
+      "start": "10:00",
+      "end": "11:35",
+      "kind": "practice",
+      "title": "Алгебра и геометрия",
+      "teacher": "Бредихин Д. А.",
+      "location": "12 корпус, 333 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 3,
+      "start": "12:05",
+      "end": "13:40",
+      "kind": "practice",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Хамутова М. В.",
+      "location": "12 корпус, 426в комната",
+      "week": "both",
+      "groups": [
+        3
+      ],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 4,
+      "start": "08:20",
+      "end": "09:50",
+      "kind": "practice",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Алексеева М. О.",
+      "location": "12 корпус, 414 комната",
+      "week": "both",
+      "groups": [
+        2
+      ],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 4,
+      "start": "10:00",
+      "end": "11:35",
+      "kind": "practice",
+      "title": "Математический анализ",
+      "teacher": "Комиссарова Н. Е.",
+      "location": "12 корпус, 420/421 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 4,
+      "start": "12:05",
+      "end": "13:40",
+      "kind": "practice",
+      "title": "История России",
+      "teacher": "Зайцев М. В.",
+      "location": "12 корпус, 303 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    }
+  ],
+  "exams": [
+    {
+      "date": "2026-06-01",
+      "time": "14:00",
+      "kind": "Зачёт",
+      "title": "Иностранный язык",
+      "teacher": "Алексеева Дина Алексеевна",
+      "location": "12 корпус, 125 комната"
+    },
+    {
+      "date": "2026-06-02",
+      "time": "10:00",
+      "kind": "Зачёт",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Иванова Анна Сергеевна",
+      "location": "12 корпус, 426в комната (1 и 3 под)"
+    },
+    {
+      "date": "2026-06-02",
+      "time": "14:00",
+      "kind": "Зачёт",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Гущин Андрей Юрьевич",
+      "location": "12 корпус, 426в комната (2 под)"
+    },
+    {
+      "date": "2026-06-03",
+      "time": "09:00",
+      "kind": "Дифференцированный зачёт",
+      "title": "Введение в специальность",
+      "teacher": "Грецова Анастасия Павловна",
+      "location": "12 корпус, 310 комната"
+    },
+    {
+      "date": "2026-06-04",
+      "time": "10:00",
+      "kind": "Зачёт",
+      "title": "Элективные дисциплины по физической культуре и спорту",
+      "teacher": "Кудрявцева Елена Владимировна",
+      "location": "12 корпус, 302 комната"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "10:00",
+      "kind": "Зачёт",
+      "title": "Алгебра и геометрия",
+      "teacher": "Бредихин Дмитрий Александрович",
+      "location": "12 корпус, 420/421 комната"
+    },
+    {
+      "date": "2026-06-06",
+      "time": "10:00",
+      "kind": "Зачёт",
+      "title": "Современные информационные технологии",
+      "teacher": "Чернигин Михаил Андреевич",
+      "location": "12 корпус, 418 комната"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "10:00",
+      "kind": "Зачёт",
+      "title": "Физика",
+      "teacher": "Черкасова Ольга Алексеевна",
+      "location": "12 корпус, 420/421 комната"
+    },
+    {
+      "date": "2026-06-10",
+      "time": "14:00",
+      "kind": "Консультация",
+      "title": "Математическая логика и теория алгоритмов",
+      "teacher": "Молчанов Владимир Александрович",
+      "location": "Дистанционно"
+    },
+    {
+      "date": "2026-06-11",
+      "time": "10:00",
+      "kind": "Экзамен",
+      "title": "Математическая логика и теория алгоритмов",
+      "teacher": "Молчанов Владимир Александрович",
+      "location": "12 корпус, 302 комната"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "14:00",
+      "kind": "Консультация",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Иванова Анна Сергеевна",
+      "location": "Дистанционно"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "10:00",
+      "kind": "Экзамен",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Иванова Анна Сергеевна",
+      "location": "12 корпус, 313 комната"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "16:00",
+      "kind": "Консультация",
+      "title": "История России",
+      "teacher": "Зайцев Максим Вячеславович",
+      "location": "Дистанционно"
+    },
+    {
+      "date": "2026-06-24",
+      "time": "10:00",
+      "kind": "Экзамен",
+      "title": "История России",
+      "teacher": "Зайцев Максим Вячеславович",
+      "location": "12 корпус, 420/421 комната"
+    },
+    {
+      "date": "2026-06-29",
+      "time": "14:00",
+      "kind": "Консультация",
+      "title": "Математический анализ",
+      "teacher": "Сахно Людмила Владимировна",
+      "location": "12 корпус, 420/421 комната"
+    },
+    {
+      "date": "2026-06-30",
+      "time": "09:00",
+      "kind": "Экзамен",
+      "title": "Математический анализ",
+      "teacher": "Сахно Людмила Владимировна",
+      "location": "12 корпус, 420/421 комната"
+    }
+  ],
+  "changes": []
+}</script>
+<script>
+(() => {
+  'use strict';
+  const $=s=>document.querySelector(s);
+  const shortDays=['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+  const fullDays=['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье'];
+  const kinds={lecture:'Лекция',practice:'Практика',lab:'Лабораторная',other:'Занятие'};
+  const seed=JSON.parse($('#initialData').textContent);
+  let data=seed, online=false, loading=false;
+  let selectedTab='classes';
+  const savedGroup=localStorage.getItem('sgu111_group')||'all';
+  const state={week:null,day:0,group:['all','1','2','3'].includes(savedGroup)?savedGroup:'all',view:localStorage.getItem('sgu111_view')==='week'?'week':'day'};
+  const icons={pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>',person:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4.5 21v-2a7.5 7.5 0 0 1 15 0v2"/></svg>'};
+  const esc=(v)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const pad=x=>String(x).padStart(2,'0');
+  const dateISO=d=>`${d.getUTCFullYear()}-${pad(d.getUTCMonth()+1)}-${pad(d.getUTCDate())}`;
+  function parseISO(s){const [y,m,d]=s.split('-').map(Number);return new Date(Date.UTC(y,m-1,d));}
+  const addDays=(date,n)=>new Date(date.getTime()+n*86400000);
+  const monday=date=>addDays(date,-((date.getUTCDay()+6)%7));
+  function saratovNow(){const parts=Object.fromEntries(new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Saratov',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date()).map(p=>[p.type,p.value]));return {date:new Date(Date.UTC(+parts.year,+parts.month-1,+parts.day)),minute:+parts.hour*60 + +parts.minute,clock:`${parts.hour}:${parts.minute}`};}
+  const fmt=(date,opts)=>new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',...opts}).format(date);
+  function academicWeek(date){const m=monday(date),key=dateISO(m);const explicit=(data.week_calendar||[]).find(w=>w.start===key);if(explicit)return {type:explicit.type,verified:true};const anchor=parseISO('2026-08-31');const diff=Math.round((m-anchor)/604800000);return {type:((diff%2)+2)%2===0?'numerator':'denominator',verified:false};}
+  function lessonsFor(day,weekDate=state.week){const week=academicWeek(weekDate).type;return data.lessons.filter(l=>l.day===day && (l.week==='both'||l.week===week) && (state.group==='all'||!l.groups.length||l.groups.includes(+state.group))).sort((a,b)=>a.start.localeCompare(b.start)||a.title.localeCompare(b.title));}
+  const thisDate=day=>addDays(state.week,day);
+  function isToday(d){return dateISO(d)===dateISO(saratovNow().date)}
+  const timeNumber=t=>+t.slice(0,2)*60 + +t.slice(3);
+  function isNow(l,day){const now=saratovNow();return isToday(thisDate(day)) && now.minute>=timeNumber(l.start) && now.minute<timeNumber(l.end);}
+  function renderOverview(){
+    const w=academicWeek(state.week),end=addDays(state.week,6);
+    const s=fmt(state.week,{day:'numeric',month:'short'}),e=fmt(end,{day:'numeric',month:'short'});
+    $('#range').textContent=`${s} — ${e}`;
+    $('#parity').textContent=w.type==='numerator'?'Ч · Числитель':'З · Знаменатель';
+    $('#weekLabel').textContent=w.verified?'По календарю СГУ':'Неделя не подтверждена календарём СГУ';
+    $('#sideWeek').textContent=w.type==='numerator'?'Числитель':'Знаменатель';
+    const total=Array.from({length:7},(_,i)=>lessonsFor(i).length).reduce((a,b)=>a+b,0);
+    $('#sideTotal').textContent=`${total} ${plural(total,['занятие','занятия','занятий'])}`;
+    $('#sideGroup').textContent=state.group==='all'?'Все':`${state.group}-я`;
+    $('#groupTip').hidden=state.group!=='all';
+    $('#group').value=state.group;
+    for(const [mode,id] of [['day','#viewDay'],['week','#viewWeek']]){
+      $(id).classList.toggle('active',state.view===mode);
+      $(id).setAttribute('aria-pressed',String(state.view===mode));
+    }
+    $('#dayTabs').style.display=state.view==='day'?'flex':'none';
+    const current=saratovNow(),d=current.date,i=(d.getUTCDay()+6)%7,nowWeek=monday(d);
+    const n=lessonsFor(i,nowWeek).length;
+    $('#summaryDate').textContent=`${fmt(d,{weekday:'long',day:'numeric',month:'long'})} · Саратов`;
+    $('#todayTitle').textContent=n?`Сегодня ${n} ${plural(n,['пара','пары','пар'])}`:'Сегодня пар нет';
+    const currentWeek=academicWeek(nowWeek);
+    $('#todaySummary').textContent=`${currentWeek.type==='numerator'?'Числитель':'Знаменатель'} · ${state.group==='all'?'Все подгруппы':state.group+'-я подгруппа'} · Саратов, UTC+4`;
+  }
+  function renderDays(){
+    const html=shortDays.map((day,i)=>{
+      const date=thisDate(i),num=lessonsFor(i).length;
+      return `<button class="day-tab ${state.day===i?'active':''} ${isToday(date)?'today':''}" data-day="${i}" aria-pressed="${state.day===i}" aria-label="${esc(fullDays[i])}, ${fmt(date,{day:'numeric',month:'long'})}, ${num} ${plural(num,['пара','пары','пар'])}"><span class="day-name">${day}</span><span class="day-num">${date.getUTCDate()}</span><span class="day-counter">${num?num+' '+plural(num,['пара','пары','пар']):'Выходной'}</span></button>`;
+    }).join('');
+    $('#dayTabs').innerHTML=html;
+    $('#dayTabs').querySelectorAll('[data-day]').forEach(b=>b.addEventListener('click',()=>{
+      state.day=Number(b.dataset.day);render();
+    }));
+    const active=$('#dayTabs .active');
+    if(active && window.matchMedia('(max-width:650px)').matches){const tabs=$('#dayTabs'),left=active.offsetLeft-tabs.offsetLeft; if(left<tabs.scrollLeft || left+active.offsetWidth>tabs.scrollLeft+tabs.clientWidth) tabs.scrollLeft=Math.max(0,left-18);}
+  }
+  function makeLesson(l,day){const now=isNow(l,day);const tags=[`<span class="tag ${esc(l.kind)}">${kinds[l.kind]||'Занятие'}</span>`];if(l.groups.length)tags.push(`<span class="tag subgroup">${l.groups.join(' и ')} подгруппа</span>`);if(l.week!=='both')tags.push(`<span class="tag shift">${l.week==='numerator'?'Числитель':'Знаменатель'}</span>`);if(l.after_change)tags.push('<span class="tag shift">↺ Изменено СГУ</span>');if(now)tags.push('<span class="tag nowbadge">Идёт сейчас</span>');return `<article class="lesson ${esc(l.kind)} ${now?'now':''}"><div class="lesson-time">${esc(l.start)}<div class="end">${esc(l.end)}</div></div><div class="type-bar"></div><div class="lesson-info"><div class="lesson-topline">${tags.join('')}</div><h3>${esc(l.title)}</h3><div class="lesson-meta">${l.teacher?`<span>${icons.person}${esc(l.teacher)}</span>`:''}${l.location?`<span>${icons.pin}${esc(l.location)}</span>`:''}</div>${l.note?`<div class="lesson-note">${esc(l.note)}</div>`:''}</div></article>`;}
+  function renderContent(){const element=$('#content');if(state.view==='day'){const day=state.day,items=lessonsFor(day);element.innerHTML=`<div class="panel-top"><div><h2 class="panel-title">${fullDays[day]}</h2><div class="panel-sub">${fmt(thisDate(day),{day:'numeric',month:'long',year:'numeric'})} · ${academicWeek(state.week).type==='numerator'?'Числитель':'Знаменатель'}</div></div><span class="count-chip">${items.length} ${plural(items.length,['пара','пары','пар'])}</span></div><div class="lessons">${items.map(l=>makeLesson(l,day)).join('')||emptyMarkup()}</div>`;}else{element.innerHTML=`<div class="panel-top"><div><h2 class="panel-title">Расписание на неделю</h2><div class="panel-sub">Пары всех дней · ${state.group==='all'?'все подгруппы':state.group+'-я подгруппа'}</div></div></div><div class="week-grid">${shortDays.map((day,i)=>{const lessons=lessonsFor(i);return `<section class="mini-day"><div class="mini-day-head"><strong>${fullDays[i]}</strong><span>${fmt(thisDate(i),{day:'numeric',month:'short'})} · ${lessons.length} пар</span></div><div class="mini-day-body">${lessons.map(l=>`<div class="mini-lesson ${esc(l.kind)}"><span class="ml-time">${esc(l.start)}</span><i class="ml-bar"></i><div><strong>${esc(l.title)}</strong><small>${l.groups.length?esc(l.groups.join(' и '))+' под · ':''}${esc(l.location||l.teacher||'')}</small></div></div>`).join('')||'<div class="mini-none">Пар нет ✨</div>'}</div></section>`}).join('')}</div>`;}}
+  function emptyMarkup(){return '<div class="empty"><div class="empty-icon">☀</div><h3>Пар нет</h3><p>Для этого дня, недели и выбранной подгруппы<br>занятий в расписании нет.</p></div>';}
+  function plural(n,words){return n%10===1&&n%100!==11?words[0]:n%10>=2&&n%10<=4&&(n%100<12||n%100>14)?words[1]:words[2]}
+  function nextLesson(){
+    const now=saratovNow(),today=now.date, result=[];
+    for(let offset=0;offset<15;offset++){
+      const date=addDays(today,offset),day=(date.getUTCDay()+6)%7,w=academicWeek(date).type;
+      for(const l of data.lessons){
+        if(l.day!==day||!(l.week==='both'||l.week===w)||!(state.group==='all'||!l.groups.length||l.groups.includes(+state.group)))continue;
+        if(offset===0&&timeNumber(l.end)<=now.minute)continue;
+        result.push({...l,date,offset});
+      }
+      if(result.length)break;
+    }
+    result.sort((a,b)=>a.start.localeCompare(b.start));
+    const l=result[0];
+    if(!l){$('#nextLabel').textContent='Ближайшая пара';$('#nextSubject').textContent='Занятий пока нет';$('#nextInfo').textContent='Проверь официальный сайт СГУ';return;}
+    const during=l.offset===0&&now.minute>=timeNumber(l.start);
+    const when=l.offset===0?'Сегодня':l.offset===1?'Завтра':fmt(l.date,{weekday:'long',day:'numeric',month:'short'});
+    $('#nextLabel').textContent=during?'Сейчас идёт':'Следующая по расписанию';
+    $('#nextSubject').textContent=l.title;
+    $('#nextInfo').textContent=`${when} · ${l.start}–${l.end}${l.location?' · '+l.location:''}${l.groups.length?' · '+l.groups.join(' и ')+' подгруппа':''}`;
+  }
+  function renderChanges(){const changed=data.changes||[];$('#changesBox').hidden=!changed.length;if(changed.length)$('#changes').innerHTML=changed.slice(0,6).map(c=>`<div class="changes-item"><span class="point">●</span><div><strong>${c.event==='removed'?'Убрана: ':c.event==='added'?'Добавлена: ':'Изменена: '}${esc(c.text)}</strong><span>${shortDays[c.day]||''} ${esc(c.time)} · ${esc(c.detail)}</span></div></div>`).join('');}
+  function renderExams(){const exams=(data.exams||[]).slice().sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));$('#examCount').textContent=`${exams.length} событий`;$('#examList').innerHTML=exams.map(e=>{const d=parseISO(e.date);return `<article class="exam"><div class="exam-date">${fmt(d,{day:'numeric',month:'short'})}<span>${esc(e.time)}</span></div><div><div class="lesson-topline"><span class="tag">${esc(e.kind)}</span>${e.date<dateISO(saratovNow().date)?'<span class="tag shift">Архив</span>':''}</div><div class="exam-title">${esc(e.title)}</div><div class="exam-meta">${esc(e.teacher)}<br>${esc(e.location)}</div></div></article>`}).join('')||'<div class="empty">Информация о сессии пока не опубликована.</div>';}
+  function render(){renderOverview();renderDays();renderContent();renderChanges();nextLesson();}
+  function updateSource(){
+    const initial=!!data.initial_snapshot;
+    $('#updated').textContent=`На сайте СГУ: ${data.source_updated||'дата не указана'}`;
+    $('#statusDot').classList.toggle('warn',!online||initial);
+    $('#statusText').textContent=initial?'Исходный снимок. Новые изменения пока не подтверждены.':online?'Загружена опубликованная версия.':'Показана сохранённая версия, свежие данные недоступны.';
+  }
+  function notice(text,force=false){const el=$('#notice');el.innerHTML=text;el.classList.toggle('visible',!!text);if(force)el.scrollIntoView({behavior:'smooth',block:'nearest'});}
+  async function sync(manual=false){if(loading)return;loading=true;$('#refresh').classList.add('spin');try{const response=await fetch(`./data/schedule.json?ts=${Date.now()}`,{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);const incoming=await response.json();if(incoming.group!=='111'||!Array.isArray(incoming.lessons)||incoming.lessons.length<4)throw Error('Неверные данные');const was=JSON.stringify(data.lessons);data=incoming;online=true;render();updateSource();renderExams();if(manual)notice(was!==JSON.stringify(data.lessons)?'Расписание обновилось. Изменения уже показаны на странице.':'Данные сайта проверены. Новых изменений в опубликованном расписании нет.');}catch(e){online=false;updateSource();if(manual)notice(location.protocol==='file:'?'Открыта локальная копия файла. Для автоматического обновления опубликуй проект на GitHub Pages по инструкции в архиве.':'Не удалось загрузить свежую опубликованную копию. Показаны последние доступные данные. Проверь <a href="https://www.sgu.ru/schedule/knt/do/111" target="_blank" rel="noopener noreferrer">официальное расписание</a>.');}finally{loading=false;$('#refresh').classList.remove('spin');}}
+  function downloadICS(){const today=saratovNow().date,events=[];let start=state.week;for(let offset=0;offset<28;offset++){const date=addDays(start,offset),day=(date.getUTCDay()+6)%7,week=academicWeek(date).type;for(const l of data.lessons){if(l.day!==day||!(l.week==='both'||l.week===week)||!(state.group==='all'||!l.groups.length||l.groups.includes(+state.group)))continue;const u=val=>val.replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;');const utc=hm=>{const [h,m]=hm.split(':').map(Number);const d=new Date(date.getTime()+(h*60+m-240)*60000);return `${d.getUTCFullYear()}${pad(d.getUTCMonth()+1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00Z`};const uid=`sgu111-${dateISO(date)}-${l.start.replace(':','')}-${l.day}-${Array.from(l.title).reduce((a,c)=>((a*31+c.codePointAt(0))>>>0),0).toString(36)}-${l.groups.join('')||'all'}@sgu111`;events.push(['BEGIN:VEVENT',`UID:${u(uid)}`,`DTSTAMP:${utc('12:00')}`,`DTSTART:${utc(l.start)}`,`DTEND:${utc(l.end)}`,`SUMMARY:${u(l.title)}`,`LOCATION:${u(l.location||'')}`,`DESCRIPTION:${u([kinds[l.kind],l.teacher,l.groups.length?'Подгруппа: '+l.groups.join(' и '):''].filter(Boolean).join(' · '))}`,'END:VEVENT'].join('\r\n'));}}
+    const cal=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//SGU111//Schedule//RU','CALSCALE:GREGORIAN','X-WR-CALNAME:SGU 111 группа',...events,'END:VCALENDAR'].join('\r\n');const blob=new Blob(['\ufeff',cal],{type:'text/calendar;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`SGU_111_${dateISO(start)}.ics`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);}
+  function setTab(tab){selectedTab=tab;$('#classes').style.display=tab==='classes'?'block':'none';$('#exams').style.display=tab==='exams'?'block':'none';$('#tabClasses').classList.toggle('active',tab==='classes');$('#tabExams').classList.toggle('active',tab==='exams');$('#tabClasses').setAttribute('aria-selected',String(tab==='classes'));$('#tabExams').setAttribute('aria-selected',String(tab==='exams'));}
+  $('#prev').onclick=()=>{state.week=addDays(state.week,-7);render();};$('#next').onclick=()=>{state.week=addDays(state.week,7);render();};$('#today').onclick=()=>{const now=saratovNow().date;state.week=monday(now);state.day=(now.getUTCDay()+6)%7;state.view='day';localStorage.setItem('sgu111_view','day');setTab('classes');render();};$('#group').onchange=e=>{state.group=e.target.value;localStorage.setItem('sgu111_group',state.group);render();};$('#viewDay').onclick=()=>{state.view='day';localStorage.setItem('sgu111_view','day');render();};$('#viewWeek').onclick=()=>{state.view='week';localStorage.setItem('sgu111_view','week');render();};$('#ics').onclick=downloadICS;$('#refresh').onclick=()=>sync(true);$('#tabClasses').onclick=()=>setTab('classes');$('#tabExams').onclick=()=>setTab('exams');$('#theme').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('sgu111_theme',document.body.classList.contains('dark')?'dark':'light');};
+  if(localStorage.getItem('sgu111_theme')==='dark')document.body.classList.add('dark');
+  const now=saratovNow().date;state.week=monday(now);state.day=(now.getUTCDay()+6)%7;render();renderExams();updateSource();sync();setInterval(()=>sync(false),15*60*1000);let lastDay=dateISO(now);setInterval(()=>{const live=saratovNow().date,liveDay=dateISO(live);if(liveDay!==lastDay){const viewingToday=dateISO(thisDate(state.day))===lastDay;lastDay=liveDay;if(viewingToday){state.week=monday(live);state.day=(live.getUTCDay()+6)%7;}render();renderExams();}else{renderOverview();nextLesson();if(state.view==='day')renderContent();}},60*1000);
+})();
+</script>
+</body>
+</html>

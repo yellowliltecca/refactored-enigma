@@ -1,0 +1,495 @@
+{
+  "group": "111",
+  "faculty": "Факультет компьютерных наук и информационных технологий",
+  "source": "https://www.sgu.ru/schedule/knt/do/111",
+  "calendar_source": "https://www.sgu.ru/schedule/knt",
+  "source_updated": "26.10.2026",
+  "fetched_at": null,
+  "initial_snapshot": true,
+  "week_calendar": [
+    {
+      "start": "2026-08-31",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-09-07",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-09-14",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-09-21",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-09-28",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-10-05",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-10-12",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-10-19",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-10-26",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-11-02",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-11-09",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-11-16",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-11-23",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-11-30",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-12-07",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-12-14",
+      "type": "denominator"
+    },
+    {
+      "start": "2026-12-21",
+      "type": "numerator"
+    },
+    {
+      "start": "2026-12-28",
+      "type": "denominator"
+    }
+  ],
+  "lessons": [
+    {
+      "day": 0,
+      "start": "08:20",
+      "end": "09:50",
+      "kind": "practice",
+      "title": "Иностранный язык",
+      "teacher": "Алексеева Д. А.",
+      "location": "12 корпус, 125 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 0,
+      "start": "10:00",
+      "end": "11:35",
+      "kind": "practice",
+      "title": "Основы Российской государственности",
+      "teacher": "Дорошин И. А.",
+      "location": "12 корпус, 420/421 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 0,
+      "start": "12:05",
+      "end": "13:40",
+      "kind": "lecture",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Иванова А. С.",
+      "location": "12 корпус, 333 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 0,
+      "start": "13:50",
+      "end": "15:25",
+      "kind": "practice",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Павлова А. А.",
+      "location": "12 корпус, 329 комната",
+      "week": "both",
+      "groups": [
+        1
+      ],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 1,
+      "start": "08:20",
+      "end": "09:50",
+      "kind": "practice",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Ковешников Д. В.",
+      "location": "12 корпус, 418 комната",
+      "week": "denominator",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 1,
+      "start": "10:00",
+      "end": "11:35",
+      "kind": "practice",
+      "title": "Физическая культура и спорт",
+      "teacher": "Кудрявцева Е. В.",
+      "location": "Спортивный комплекс «Стадион Локомотив»: беговые дорожки; манеж",
+      "week": "both",
+      "groups": [],
+      "note": "Бассейн (пометка на сайте СГУ)",
+      "after_change": false
+    },
+    {
+      "day": 1,
+      "start": "12:05",
+      "end": "13:40",
+      "kind": "lecture",
+      "title": "История России",
+      "teacher": "Зайцев М. В.",
+      "location": "12 корпус, 424/425 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 1,
+      "start": "13:50",
+      "end": "15:25",
+      "kind": "lecture",
+      "title": "Основы Российской государственности",
+      "teacher": "Дорошин И. А.",
+      "location": "12 корпус, 333 комната",
+      "week": "numerator",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 1,
+      "start": "13:50",
+      "end": "15:25",
+      "kind": "lecture",
+      "title": "Теоретическая информатика",
+      "teacher": "Иванов А. С.",
+      "location": "12 корпус, 310 комната",
+      "week": "denominator",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 2,
+      "start": "08:20",
+      "end": "09:50",
+      "kind": "lecture",
+      "title": "Математический анализ",
+      "teacher": "Сахно Л. В.",
+      "location": "12 корпус, 424/425 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 2,
+      "start": "10:00",
+      "end": "11:35",
+      "kind": "practice",
+      "title": "Иностранный язык",
+      "teacher": "Алексеева Д. А.",
+      "location": "12 корпус, 125 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 2,
+      "start": "12:05",
+      "end": "13:40",
+      "kind": "lecture",
+      "title": "Русский язык и культура речи",
+      "teacher": "Шаповалова Н. Г.",
+      "location": "12 корпус, 420/421 комната",
+      "week": "numerator",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 2,
+      "start": "13:50",
+      "end": "15:25",
+      "kind": "practice",
+      "title": "Теоретическая информатика",
+      "teacher": "Иванов А. С.",
+      "location": "12 корпус, 303 комната",
+      "week": "numerator",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 2,
+      "start": "13:50",
+      "end": "15:25",
+      "kind": "practice",
+      "title": "Русский язык и культура речи",
+      "teacher": "Шаповалова Н. Г.",
+      "location": "12 корпус, 420/421 комната",
+      "week": "denominator",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 2,
+      "start": "15:35",
+      "end": "17:10",
+      "kind": "lecture",
+      "title": "Введение в языкознание",
+      "teacher": "Алексеева Д. А.",
+      "location": "12 корпус, 424/425 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 3,
+      "start": "08:20",
+      "end": "09:50",
+      "kind": "lecture",
+      "title": "Алгебра и геометрия",
+      "teacher": "Бредихин Д. А.",
+      "location": "12 корпус, 420/421 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 3,
+      "start": "10:00",
+      "end": "11:35",
+      "kind": "practice",
+      "title": "Алгебра и геометрия",
+      "teacher": "Бредихин Д. А.",
+      "location": "12 корпус, 333 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 3,
+      "start": "12:05",
+      "end": "13:40",
+      "kind": "practice",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Хамутова М. В.",
+      "location": "12 корпус, 426в комната",
+      "week": "both",
+      "groups": [
+        3
+      ],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 4,
+      "start": "08:20",
+      "end": "09:50",
+      "kind": "practice",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Алексеева М. О.",
+      "location": "12 корпус, 414 комната",
+      "week": "both",
+      "groups": [
+        2
+      ],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 4,
+      "start": "10:00",
+      "end": "11:35",
+      "kind": "practice",
+      "title": "Математический анализ",
+      "teacher": "Комиссарова Н. Е.",
+      "location": "12 корпус, 420/421 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    },
+    {
+      "day": 4,
+      "start": "12:05",
+      "end": "13:40",
+      "kind": "practice",
+      "title": "История России",
+      "teacher": "Зайцев М. В.",
+      "location": "12 корпус, 303 комната",
+      "week": "both",
+      "groups": [],
+      "note": "",
+      "after_change": false
+    }
+  ],
+  "exams": [
+    {
+      "date": "2026-06-01",
+      "time": "14:00",
+      "kind": "Зачёт",
+      "title": "Иностранный язык",
+      "teacher": "Алексеева Дина Алексеевна",
+      "location": "12 корпус, 125 комната"
+    },
+    {
+      "date": "2026-06-02",
+      "time": "10:00",
+      "kind": "Зачёт",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Иванова Анна Сергеевна",
+      "location": "12 корпус, 426в комната (1 и 3 под)"
+    },
+    {
+      "date": "2026-06-02",
+      "time": "14:00",
+      "kind": "Зачёт",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Гущин Андрей Юрьевич",
+      "location": "12 корпус, 426в комната (2 под)"
+    },
+    {
+      "date": "2026-06-03",
+      "time": "09:00",
+      "kind": "Дифференцированный зачёт",
+      "title": "Введение в специальность",
+      "teacher": "Грецова Анастасия Павловна",
+      "location": "12 корпус, 310 комната"
+    },
+    {
+      "date": "2026-06-04",
+      "time": "10:00",
+      "kind": "Зачёт",
+      "title": "Элективные дисциплины по физической культуре и спорту",
+      "teacher": "Кудрявцева Елена Владимировна",
+      "location": "12 корпус, 302 комната"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "10:00",
+      "kind": "Зачёт",
+      "title": "Алгебра и геометрия",
+      "teacher": "Бредихин Дмитрий Александрович",
+      "location": "12 корпус, 420/421 комната"
+    },
+    {
+      "date": "2026-06-06",
+      "time": "10:00",
+      "kind": "Зачёт",
+      "title": "Современные информационные технологии",
+      "teacher": "Чернигин Михаил Андреевич",
+      "location": "12 корпус, 418 комната"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "10:00",
+      "kind": "Зачёт",
+      "title": "Физика",
+      "teacher": "Черкасова Ольга Алексеевна",
+      "location": "12 корпус, 420/421 комната"
+    },
+    {
+      "date": "2026-06-10",
+      "time": "14:00",
+      "kind": "Консультация",
+      "title": "Математическая логика и теория алгоритмов",
+      "teacher": "Молчанов Владимир Александрович",
+      "location": "Дистанционно"
+    },
+    {
+      "date": "2026-06-11",
+      "time": "10:00",
+      "kind": "Экзамен",
+      "title": "Математическая логика и теория алгоритмов",
+      "teacher": "Молчанов Владимир Александрович",
+      "location": "12 корпус, 302 комната"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "14:00",
+      "kind": "Консультация",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Иванова Анна Сергеевна",
+      "location": "Дистанционно"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "10:00",
+      "kind": "Экзамен",
+      "title": "Информационные технологии и программирование",
+      "teacher": "Иванова Анна Сергеевна",
+      "location": "12 корпус, 313 комната"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "16:00",
+      "kind": "Консультация",
+      "title": "История России",
+      "teacher": "Зайцев Максим Вячеславович",
+      "location": "Дистанционно"
+    },
+    {
+      "date": "2026-06-24",
+      "time": "10:00",
+      "kind": "Экзамен",
+      "title": "История России",
+      "teacher": "Зайцев Максим Вячеславович",
+      "location": "12 корпус, 420/421 комната"
+    },
+    {
+      "date": "2026-06-29",
+      "time": "14:00",
+      "kind": "Консультация",
+      "title": "Математический анализ",
+      "teacher": "Сахно Людмила Владимировна",
+      "location": "12 корпус, 420/421 комната"
+    },
+    {
+      "date": "2026-06-30",
+      "time": "09:00",
+      "kind": "Экзамен",
+      "title": "Математический анализ",
+      "teacher": "Сахно Людмила Владимировна",
+      "location": "12 корпус, 420/421 комната"
+    }
+  ],
+  "changes": []
+}
